@@ -433,9 +433,9 @@ function exportProj(projectId, filename) {
 
 function importProj(filename) {
     debug("Importing Project from file [" + filename + "]");
-    url += "/project-import";
+    url = "https://" + domainName + "/apis/v1/rest/project-import";
     data = undefined;
-    request.postUploadFile(url, username, password, timeout, data, filename, "file", processResponse);
+    request.postUploadFile(url,username,password,timeout,undefined,filename,"project",processResponse);
 }
 
 
