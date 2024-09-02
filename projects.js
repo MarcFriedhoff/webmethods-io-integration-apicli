@@ -431,6 +431,13 @@ function exportProj(projectId, filename) {
 
 }
 
+function importProj(filename) {
+    debug("Importing Project from file [" + filename + "]");
+    url += "/project-import";
+    data = undefined;
+    request.postUploadFile(url, username, password, timeout, data, filename, "file", processResponse);
+}
+
 
 /* Deployment */
 
@@ -497,5 +504,5 @@ module.exports = {
     listWebhooks, regenWebhook, setWebhookAuth,
     listTriggers, deleteTrigger,
     listRefData, getRefData, addRefData, updateRefData, deleteRefData,
-    exportProj
+    exportProj, importProj
 };
